@@ -172,7 +172,7 @@ railway-resource-allocation
 Clone the repository
 
 ```
-git clone <your-repository-link>
+git clone https://github.com/Harshavardhan-78/Smart-Railway-Resource-Allocation-System
 ```
 
 Navigate to the project directory
@@ -233,3 +233,4 @@ Possible improvements include:
 
 Smart Railway Resource Allocation System
 Data-Driven Railway Planning Project
+
