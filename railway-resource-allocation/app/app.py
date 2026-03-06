@@ -2,12 +2,13 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pathlib import Path
 
-# Project root directory
-BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_PATH = BASE_DIR / "data" / "railway_dataset.csv"
+st.title("🚆 Smart Railway Resource Allocation System")
 
+df = pd.read_csv("data/railway_dataset.csv")
+
+st.subheader("Dataset Preview")
+st.dataframe(df.head())
 st.title("🚆 Smart Railway Resource Allocation System")
 
 st.write(
@@ -147,5 +148,6 @@ st.bar_chart(platform_load)
 st.subheader("Platform Recommendation")
 
 recommended_platform = platform_load.idxmin()
+
 
 st.success(f"Recommended Platform for Next Train: Platform {recommended_platform}")
