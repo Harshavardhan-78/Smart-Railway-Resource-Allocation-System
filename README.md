@@ -1,7 +1,5 @@
 # 🚆 Smart Railway Resource Planning System
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_svg)](https://smart-railway-resource-allocation-system-qknuv2mh79izymawnk9td.streamlit.app/)
-
 A **Machine Learning + Data Analytics** project that predicts passenger demand on railway routes and provides **resource optimization recommendations** such as coach allocation and train frequency.
 
 🔗 **[Live Demo: View the Interactive Dashboard](https://smart-railway-resource-allocation-system-qknuv2mh79izymawnk9td.streamlit.app/)**
@@ -181,4 +179,5 @@ https://github.com/Harshavardhan-78
 # ⭐ If you like this project
 
 Give it a **star ⭐ on GitHub** and feel free to contribute!
+
 
