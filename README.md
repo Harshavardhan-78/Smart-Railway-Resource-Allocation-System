@@ -1,134 +1,70 @@
 # 🚆 Smart Railway Resource Planning System
 
-A **data-driven railway planning dashboard** that analyzes historical train data to predict passenger demand and recommend optimal allocation of railway resources such as coaches, trains, and platforms.
+A **Machine Learning + Data Analytics** project that predicts passenger demand on railway routes and provides **resource optimization recommendations** such as coach allocation and train frequency.
 
-This project was developed as a prototype to demonstrate how **data analytics and machine learning can improve railway operational efficiency** without requiring complex infrastructure simulations.
-
----
-
-# 📌 Problem Statement
-
-Railway networks often face challenges such as:
-
-* Overcrowded trains on high-demand routes
-* Underutilized coaches on low-demand routes
-* Platform congestion
-* Inefficient scheduling decisions
-
-Most scheduling decisions rely on **static planning rather than dynamic data insights**.
-
-This project proposes a **Smart Railway Resource Planning System** that uses historical operational data to predict passenger demand and provide **data-driven recommendations for resource allocation**.
-
----
-
-# 🎯 Objectives
-
-The system aims to:
-
-* Predict passenger demand for train routes
-* Identify overcrowded routes
-* Recommend additional coaches or trains
-* Improve platform usage
-* Provide an interactive dashboard for railway planners
-
----
-
-# 🧠 Solution Overview
-
-The system processes historical railway data and generates insights using **data visualization and machine learning**.
-
-### Workflow
-
-Dataset → Data Processing → Demand Prediction → Resource Recommendation → Dashboard Visualization
-
-Key components:
-
-1. **Synthetic Dataset Generator**
-2. **Demand Prediction Model**
-3. **Recommendation Engine**
-4. **Interactive Dashboard**
+This system helps railway planners **anticipate passenger load, reduce overcrowding, and optimize train resources** using data-driven insights.
 
 ---
 
 # 📊 Features
 
-### 📈 Demand Analysis
-
-Visualize passenger trends across routes and days.
-
-### 🔮 Demand Prediction
-
-Predict passenger demand based on route, capacity, and travel conditions.
-
-### 🚆 Coach Allocation Recommendation
-
-Suggest additional coaches when demand exceeds available capacity.
-
-### 🚄 Train Frequency Suggestions
-
-Recommend additional trains on consistently overcrowded routes.
-
-### 🖥 Interactive Dashboard
-
-User-friendly interface for exploring railway demand patterns.
+* 📈 **Passenger Demand Prediction** using Machine Learning
+* 🚉 **Route-wise demand visualization**
+* 📅 **Weekend vs Weekday demand analysis**
+* 🚨 **Overcrowded route detection**
+* 🚆 **Coach allocation recommendation**
+* ⏱ **Train frequency recommendation**
+* 📊 **Interactive Streamlit dashboard**
 
 ---
 
-# 🛠 Technology Stack
+# 🧠 Machine Learning Model
 
-**Programming Language**
+The system uses:
 
-Python
+* **Random Forest Regressor**
+* Features used for prediction:
 
-**Libraries**
+  * Route_ID
+  * Weekend indicator
+  * Number of Coaches
+  * Seat Capacity
 
-* Pandas
-* NumPy
-* Scikit-learn
-* Plotly
-* Streamlit
+The model predicts **Passenger_Count** for a given route configuration.
 
 ---
 
-# 📁 Project Structure
+# 🗂 Project Structure
 
-smart-railway-planner/
-
+```
+Smart-Railway-Resource-Planning/
 │
-
 ├── data/
-│   └── railway_data.csv
-
-├── dataset_generator.py
-├── prediction_model.py
-├── recommendation_engine.py
-├── dashboard.py
-
-├── requirements.txt
-└── README.md
-
----
-
-# 📦 Installation Guide
-
-Follow these steps to run the project locally.
-
----
-
-# 1️⃣ Clone the Repository
-
-First clone the repository using Git:
-
-```bash
-git clone https://github.com/Harshavardhan-78/Smart-Railway-Resource-Allocation-System
+│   └── railway_data.csv           # Dataset
+│
+├── dashboard.py                  # Streamlit dashboard
+├── prediction_model.py           # ML model training
+├── recommendation_engine.py      # Resource recommendation logic
+├── dataset_generator.py          # Synthetic dataset generator
+│
+├── requirements.txt              # Python dependencies
+└── README.md                     # Project documentation
 ```
 
+---
+
+# ⚙️ Installation
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/Harshavardhan-78/Smart-Railway-Resource-Planning.git
+cd Smart-Railway-Resource-Planning
+```
 
 ---
 
-# 2️⃣ Install Dependencies
-
-Install the required Python libraries:
+### 2️⃣ Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -136,124 +72,109 @@ pip install -r requirements.txt
 
 ---
 
-# 3️⃣ Generate Synthetic Dataset
-
-Since real railway data cannot be used, a synthetic dataset is generated.
-
-Run the dataset generator:
-
-```bash
-python dataset_generator.py
-```
-
-This will create:
-
-```
-data/railway_data.csv
-```
-
----
-
-# 4️⃣ Run the Dashboard
-
-Start the Streamlit application:
+### 3️⃣ Run the dashboard
 
 ```bash
 streamlit run dashboard.py
 ```
 
-The dashboard will open automatically in your browser.
+The application will start at:
+
+```
+http://localhost:8501
+```
 
 ---
 
-# 📊 Dataset Description
+# 📊 Dashboard Capabilities
 
-The project uses a **synthetic dataset** designed to simulate railway operations.
+The Streamlit dashboard provides:
 
-### Dataset Fields
+### System Overview
 
-| Column          | Description                  |
-| --------------- | ---------------------------- |
-| Train_ID        | Unique train identifier      |
-| Route           | Source-Destination route     |
-| Date            | Travel date                  |
-| Passenger_Count | Number of passengers         |
-| Seat_Capacity   | Total available seats        |
-| Num_Coaches     | Number of train coaches      |
-| Platform        | Assigned platform number     |
-| Delay_Minutes   | Delay in minutes             |
-| Weekend         | Indicator for weekend travel |
+* Total passengers
+* Average occupancy rate
 
-Passenger demand is generated using realistic assumptions such as:
-
-* Higher demand on weekends
-* Route-based demand differences
-* Random variations to simulate real-world fluctuations
-
----
-
-# 🔍 Example Use Case
-
-Example scenario:
-
-Route: **Delhi–Mumbai**
-
-Capacity: **900 seats**
-
-Predicted Demand: **1120 passengers**
-
-System Recommendation:
-
-* Add **4 additional coaches**
-* Consider **special train during peak hours**
-
----
-
-# 📈 Dashboard Insights
-
-The dashboard provides:
+### Visualizations
 
 * Passenger demand by route
-* Weekend vs weekday demand patterns
-* Most overcrowded routes
-* Predicted passenger demand
-* Resource allocation recommendations
+* Weekend vs weekday demand distribution
+
+### Prediction
+
+Users can input:
+
+* Route
+* Weekend / Weekday
+* Seat Capacity
+* Number of Coaches
+
+The system predicts **expected passenger demand**.
+
+### Recommendations
+
+Based on predicted demand, the system suggests:
+
+* 🚆 **Additional coaches if overcrowded**
+* ⏱ **Increasing train frequency**
+
+### Overcrowding Detection
+
+Routes exceeding an **occupancy threshold** are automatically identified.
 
 ---
 
-# ⚠️ Assumptions
+# 📦 Dataset
 
-* Synthetic data simulates realistic railway demand patterns.
-* Each coach is assumed to hold approximately **50 passengers**.
-* Demand increases during weekends and peak travel periods.
+The dataset contains simulated railway operational data including:
+
+| Column          | Description                |
+| --------------- | -------------------------- |
+| Route           | Train route                |
+| Weekend         | 1 = weekend, 0 = weekday   |
+| Num_Coaches     | Number of coaches in train |
+| Seat_Capacity   | Total seat capacity        |
+| Passenger_Count | Number of passengers       |
+
+Synthetic data is generated using:
+
+```
+dataset_generator.py
+```
+
+---
+
+# 🛠 Technologies Used
+
+* **Python**
+* **Pandas**
+* **Scikit-learn**
+* **Streamlit**
+* **Plotly**
 
 ---
 
 # 🚀 Future Improvements
 
-Potential enhancements include:
+Possible enhancements:
 
-* Real-time railway API integration
-* Geographic route visualization
-* Delay prediction models
-* Dynamic platform scheduling
-* What-if simulation for train capacity planning
-
----
-
-# 🤝 Contribution
-
-Contributions are welcome.
-
-To contribute:
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Submit a pull request
+* Real-time passenger data integration
+* Deep learning demand prediction
+* Train timetable optimization
+* Passenger flow forecasting
+* Deployment on cloud platforms
 
 ---
 
-# 📜 License
+# 👨‍💻 Author
 
-This project is developed for educational and hackathon purposes.
+**Harshavardhan**
+
+GitHub:
+https://github.com/Harshavardhan-78
+
+---
+
+# ⭐ If you like this project
+
+Give it a **star ⭐ on GitHub** and feel free to contribute!
